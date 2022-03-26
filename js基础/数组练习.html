@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数组的遍历</title>
+</head>
+<body>
+    <script>
+        /*
+        新建一个对象数组 定义一个函数 把数组里的对象中不满18岁的加入到新的数组中 对象属性有name和age
+        // */
+        // function Person(name,age) {
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // var per0 = new Person('许昊龙',18);
+        // var per1 = new Person('腾杨天下',16);
+        // var per2 = new Person('猴国玉',14);
+        // var arr = [per0,per1,per2];
+        // // console.log(arr);
+        // function getChild(arr) {
+        //     var childarray = [];
+        //     for(i = 0 ;i <arr.length; i++)
+        //     {
+        //         // console.log(arr[i]);
+        //         if(arr[i].age < 18)
+        //         {
+        //            childarray.push(arr[i]) ;
+        //         }
+        //     }
+        //     return childarray;
+        // }
+        // var res = getChild(arr);
+        // console.log(res);
+        /*
+        关于foreach()方法 ie8以上支持
+            1.形参是一个回调函数
+            回调函数的第一个参数是对象当前遍历的元素
+            第二个参数是遍历的元素的索引
+            第三哥参数是当前遍历的对象
+        */
+
+        // var arr = ['小炫','小猴','小猪'];
+        // arr.forEach(function(value,index,object){
+        //     console.log('value:'+value+'index:'+index+'object:'+object);
+        // })
+        /*
+        关于slice(切割）和splice(粘接) 是数组的两个方法
+       特殊 slice(0,2) 不会影响原数组 切出新数组 返回值是切除的部分数组
+        表示从索引为0的元素开始删除到索引为2的元素 删除0 1 [0,2) 第二个参数可以为复数 -1表示倒数第一个 -2表示倒数第二个
+        splice(0,3,'123') 改变原数组
+        表示从索引为0的元素开始删除 删除3个元素 并在索引为0的元素前面加上'123'这个新元素
+        */
+        var arr = ['小炫','小猴','小猪'];
+        arr.splice(0,0,'大惹塞');
+        console.log(arr)
+    </script>
+</body>
+</html>

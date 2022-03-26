@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #info {
+            width: 300px;
+            height: 200px;
+            overflow: auto;
+        }
+    </style>
+    <script>
+        //当滚动条滚到底时 可注册
+        window.onload = function(){
+            var info = document.getElementById('info');
+            var input = document.getElementsByTagName('input')[0];
+            var btn1 = document.getElementById('btn1');
+            info.onscroll = function(){
+                if(info.scrollHeight-info.scrollTop == info.clientHeight)
+                {
+                    //可滚动区域 - 滚动条滚动区域  == 当前可显示区域 即滑到底
+                    input.disabled = false;
+                    btn1.disabled = false;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <p id="info">
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+        请阅读一下条例请阅读一下条例
+    </p>
+    <input type="checkbox" disabled=true/>您已同意以上条例
+    <button id="btn1" disabled=true>注册</button>
+    <!-- 通过disabled设置为true表示禁用该元素 -->
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+    </style>
+    <script>
+
+        window.onload = function(){
+            var test1 = document.getElementById('test1');
+            test1.onclick = function(){
+
+            }
+            //这个方法也可以为元素绑定响应函数 添加事件监听器
+            /*
+            第一个参数 绑定事件的字符串 不要on
+            第二个参数 回调函数 事件触发时该函数会被调用
+            3.是否在捕获阶段触发事件 一般传false
+            ie8中不适用 因此需要考虑兼容性 自定义一个函数 处理事件
+            attachEvent ie8回调函数的this指向window 因此需要回调函数.call(对象)改变指向
+            */
+        //    test1.addEventListener('click',function(){
+        //         alert(1)
+        //    },false)
+           
+           function getEvent(obj,callstr,callback){
+                if(obj.addEventListener){
+                    obj.addEventListener(callstr,callback,false)
+                }else
+               {obj.attachEvent('on'+callstr,function(){callback.call(obj)});}
+           }
+           
+           getEvent(test1,'click',function(){
+               alert(this);
+           })
+        }
+    </script>
+</head>
+<body>
+    <div id="test1"></div>
+</body>
+</html>

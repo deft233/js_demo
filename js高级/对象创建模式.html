@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        1.new Object实例来创建对象 语句繁琐 
+        适用于不确定给对象赋值的情况下
+        */
+       var obj1 = new Object();
+       obj1.name = '我是第一';
+       obj1.age = '18';
+       console.log(obj1);
+       /*
+       2.对象字面量的形式创建对象 创建多个对象时 代码会出现重复
+       */
+      var obj2 = {
+          name:'张三',
+          age:20
+      }
+      var obj3 = {
+          name:'张三百',
+          age:200
+      }
+      /*
+      3.函数工厂模式创建对象 无法知道对象的具体类型 都是object
+      */
+      function Person0(name,age){
+          
+          return {
+            name:name,
+            age:age
+          }
+      }
+      var obj4 = Person0('王五',25);
+      console.log(obj4);
+      /*
+      4.构造函数+原型创建对象
+      */
+      function Person(name,price){
+          this.name = name;
+          this.price = price;
+         
+      }
+      Person.prototype.sayHi = function(){
+              alert(hi);
+          }
+      var obj5 = new Person('wuhu',4000)
+      console.log(obj5)
+    </script>
+</body>
+</html>

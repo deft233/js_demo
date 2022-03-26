@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        关于string类型 在底层存储时是根据数组的形式存储 所以能使用索引来操作字符串中的每个字符
+        String里的方法 大多数都不会改变原字符串
+        */
+       var str = "wo,xiangda bisai";
+    //    console.log(str[0]);
+        // console.log(str.charAt(1)) 
+        console.log(str.indexOf(','));//查询某字符的索引下标 从前到后开始查询 返回出现的第一个索引 若找不到则返回-1 用于数组去重复
+        console.log(str.lastIndexOf("i",13))//查询某字符的索引下标 从后到前开始查询 返回出现的第一个索引 接收第二个参数 第二个参数表示开始检索的位置
+        //把字符串变成数组 split() 需要传入一个参数 这个参数是分隔符 
+        /*
+        
+        如果省略分隔符，被返回的数组将包含 index [0] 中的整个字符串。
+        如果分隔符是 ""，被返回的数组将是间隔单个字符的数组：*/
+        console.log(str.split('i'));
+        /*
+        slice() 可以传入负参数
+        substr()  第二个参数是数量
+        substring() 不可以传负参数 前参数比后参数大会自动反转
+        切割字符串的三种方法
+        */
+        console.log(str.slice(1,-1));
+        console.log(str.substr(2,1));
+        console.log(str.substring(2,1));
+    </script>
+</body>
+</html>

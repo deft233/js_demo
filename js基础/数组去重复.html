@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //数组去重 最直观的方法 两层循环 只修改原数组
+        var arr = [1,2,3,4,5,5,3,2,4,1,100,100,100];
+
+        // for( i = 0 ; i<arr.length; i++)
+        // {
+        //     for( j = i+1 ;j <arr.length ; j++)
+        //     {
+        //         if(arr[i] == arr[j]){
+        //             arr.splice(j,1);
+        //             j--;
+        //         }
+        //     }
+        // }
+        // console.log(arr);
+        //数组去重  用新数组接收
+            var newArr = [];
+        for( i = 0 ;i<arr.length ; i++){
+            if(newArr.indexOf(arr[i]) == -1){
+                newArr.push(arr[i]);
+            }
+        }
+        console.log(newArr)
+
+    </script>
+</body>
+</html>

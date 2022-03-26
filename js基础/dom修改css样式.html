@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var btn1 = document.getElementById('btn1');
+            var box1 = document.getElementById('box1');
+            btn1.onclick = function(){
+                //修改css内联样式  dom.style.样式名 = 样式值;
+                box1.style.width = '500px';
+                box1.style.backgroundColor = 'yellow'
+            }
+        }
+    </script>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">点我</button>
+    <div id="box1">
+    </div>
+</body>
+</html>

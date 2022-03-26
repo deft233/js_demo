@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        关于Math 跟Date()构造函数不同 他是一个工具类不用new关键字 直接使用它的方法
+        */
+       Math.floor(1.5);//向下取整
+       Math.round(1.5);//四舍五入取整
+       Math.ceil(1.5);//向上取整
+       Math.max(10,20.40);//找出数中的最大值 只能传number min()同理
+       Math.abs(1.1);//绝对值 absolute
+       Math.pow(2.2);//x的y次方
+       Math.sqrt(4);//对x开方
+    //    var res = Math.random();//返回一个0-1之间的随机数 
+       /*
+       关于random() 获取x-y之间的随机数 1-9  *8+1
+       random()*(y-x)+x (y-x,x)
+       */
+        
+       var res = Math.round(Math.random()*8+1);
+       console.log(res)
+    </script>
+</body>
+</html>

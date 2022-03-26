@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Date()构造函数
+        getTime()获取时间戳 格林尼治时间1970.1.1 0.0.0到现在多少毫秒 根据系统不同 时区也会不同
+        */
+        var date0 = new Date();
+        var year0 = date0.getFullYear();
+        var month0 = date0.getMonth();
+        var week =date0.getDay();
+        var day = date0.getDate();
+        var timecuo0 = date0.getTime();
+        var timecuo = Date.now();
+        console.log('现在是'+year0+'年'+(month0+1)+'月'+day+'日'+'星期'+week);
+        console.log(timecuo0);
+
+    </script>
+</body>
+</html>

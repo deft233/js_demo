@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">点我获取</button>
+    <!-- <script src="./promise封装ajax.js"></script> -->
+    <script>
+        function myajax(url){
+    return new Promise((resolve,reject)=>{
+        let xhr = new XMLHttpRequest();
+       xhr.open('GET',url);
+        xhr.responseType = 'json';
+       xhr.send();
+       xhr.onreadystatechange = function(){
+           if(xhr.readyState === 4){
+                if(xhr.status>=200&&xhr.status<300){
+                    // console.log(xhr.response);
+                    resolve(xhr.response)
+                }else{
+                    // console.log(xhr.status);
+                    reject(xhr.status)
+                }
+           }
+       }
+       })
+}
+// myajax().then(value=>{
+//     console.log(value);
+// },reason=>{
+//     console.log(reason);
+// })
+//使用async await await 接收一个promise对象 并返回其结果值
+let btn1 = document.getElementById('btn1');
+btn1.addEventListener('click',async function(){
+    
+     let res =await myajax('https://api.apiopen.top/getJoke');
+    console.log(res);
+})
+    </script>
+</body>
+</html>

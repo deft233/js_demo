@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类型转换</title>
+</head>
+<body>
+    <script>
+        /* 转换为字符型
+        1.toString()方法 只能用于Number Boolean类型
+        无法转换Null和Undefined
+        2.String()函数，都适用 但前三种类型底层调用tostring()方法
+        null和undefined则是加上""
+        3.使用拼串的方法隐式转换 +'' 加上一个空串
+        */
+       /*
+        转换为数字类型
+        1.Number() '123456'转换字符型 正常转换 带其他字符则NaN 空串或全是空格为0
+        转换Boolean true 1 false 0
+        转换null 0
+        转换undefined NaN
+        2.parseInt() 
+         专门转换字符串   转换整数 可以将字符串中的数字字符提取出来 直到非数字字符为止
+         parseFloat() 转换浮点数
+         对于非字符串类型 会先转换成字符串 再进行处理
+         parseInt(object,10)后面的10 是表示进制
+        3.-0 隐式转换 或者 加上+正号
+       */
+      /*
+        转换为Boolean类型
+        Boolean() 字符串转换 空串为false 其余为true
+        数字类型转换 除了0和NaN 是false 其余都为true
+        null 是false
+        undefined为false
+      */
+        var a =NaN;
+        a = Number(a);
+        var res = typeof a;
+        console.log(typeof a);
+        console.log(a);
+
+
+    </script>
+</body>
+</html>

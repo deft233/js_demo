@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test {
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var test = document.getElementById('test');
+            var testin= document.getElementById('testin');
+             //鼠标移动在里面时显示坐标轴
+            test.onmousemove = function(e){
+                e = event || window.event;
+                //e是事件对象 作为参数传入响应函数
+               testin.innerHTML = 'x轴的坐标为'+e.clientX+'y轴的坐标为'+e.clientY;
+            }
+           
+        }
+    </script>
+</head>
+<body>
+    <div id="test"></div>
+    <div id="testin"></div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        原型 每个函数都有原型 但普通函数的原型prototype没啥用 
+        构造函数的原型相当于一个公共区域 可以让它的实例对象使用 
+        类的实例化出来的对象 它可以调用构造函数的原型对象 隐含的属性 使用__proto__才可调用
+        构造函数的原型对象也有原型 
+        调用实例化的对象的方法 先在该对象内寻找 没有就到原型对象中寻找 在没有就到原型的原型找 直到找到Object的原型 Object的原型是null
+        hasOwnProperty()方法在原型的原型中
+        */
+       function Person(name,age){
+           this.name = name;
+           this.age = age;
+        //    这样写又出现原来的问题 每次在实例化的时候都会给对象创建toString方法 建议直接写在原型对象中
+           this.toString = function(){
+               return '尼玛';
+           }
+           
+       }
+       Person.prototype.sayHi = function(){
+            alert('hi~~');
+           }
+       var p1 = new Person('小炫',18);
+       var p2 = new Person('小冰',22);
+    //    p1.sayHi();
+    //    p2.sayHi();
+    //    console.log(p1.sayHi == p2.sayHi)
+    //    console.log(p1.hasOwnProperty('hasOwnProperty'))
+       console.log(Object.prototype)
+       /*
+       关于toString()方法 这个方法是Object中的 我们可以通过重写自定义toString()方法
+       */
+      console.log(p1);
+      console.log(p1.toString());
+    </script>
+</body>
+</html>

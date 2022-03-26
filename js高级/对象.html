@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 对象
+    obj.属性名 操作简单 有时候不能使用
+    obj['属性名'] 比较麻烦 但可以传入属性名不确定的变量 或者是一些特殊字符
+    
+    -->
+    <script>
+        /*
+        函数
+        函数怎么调用
+        test() 直接调用
+        obj.test() 对象调用
+        new test() new调用
+        test.call/apply(obj) 让test称为obj对象的临时方法调用
+        回调函数
+        1.你定义
+        2.你没有调用
+        3.最终执行
+        一。dom事件回调函数
+        二。定时器回调函数
+        三。ajax回调函数
+        四。生命周期回调函数
+        // 
+        匿名函数自调用
+        1.隐藏实现 不会污染外部全局变量命名空间
+        2.编码js模块
+        */
+        (function (){
+            var a = 1;
+            console.log(a++);
+        })();
+
+        (function (){
+            var a = 1;
+            a++;
+            function test(){
+                console.log(a);
+            }
+            window.$ = function(){ //函数暴露
+                return {test:test}
+            }
+        })();
+        $().test();
+        /*
+        原型 每个函数都有原型 原型里的方法是给实例对象使用的 prototype 里面有个构造器 constructor 指向这个函数对象
+        */
+        /*
+        关于this的指向
+        fun1() window对象
+        obj.fun1() obj
+        p = new fun1() 新创建的实例对象p
+        p.fun2.call(obj); obj
+        */
+        /*
+        隐式原型与显式原型
+        隐式原型是指实例对象的__proto__属性
+        显示原型是指构造函数的prototype属性
+        fn._proto_===Fn.prototype
+        */
+       /*
+       原型链属性问题
+       在找对象的属性时 会沿着对象的原型链寻找
+       在给对象的属性赋值时 不会去寻找原型链 而是直接给对象的属性赋值
+       instanceof
+       A instanceof B  实例对象A是否是构造函数B的实例对象 
+       原理 查找B的prototype B.prototype是否在A的原型链中 A.__proto__.__proto__... ===? B.prototype
+
+       */
+    </script>
+</body>
+</html>

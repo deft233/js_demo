@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script src="./promise.js"></script> -->
+    <script>
+        /*
+        关注then()的返回值问题 返回值是一个promise对象 状态由回调函数决定 状态由回调函数执行结果决定 并返回的不是一个失败的promise对象 则为成功 不设置返回值 则这个promise对象状态为成功 结果值为undefined
+        如果执行失败回调 则返回promise对象状态 由回调函数执行结果决定 结果值由返回值决定
+        1.抛出异常 返回状态为rejected
+        2.返回结果是非promise对象 返回状态为resolved 结果值为返回值 无返回 结果为undefined
+        promise链式编程
+        异常穿透 在链式调用时 可以在最后指定失败的回调 promise链前面的所有异常 都会传到最后失败的回调中执行
+        通过返回一个pending状态的promise可以中断promise链
+        */
+        let p = new Promise((resolve, reject) => {
+            setTimeout(() => {
+                // console.log(this);
+                resolve('wuhu');
+                console.log(111);
+            }, 1000);
+            // throw 'error';
+        });
+        p.then(v => {
+            console.log(222);
+        }, r => {
+            console.log(r);
+        })
+        // let p1 = Promise.resolve(new Promise((resolve,reject)=>{
+        //     setTimeout(()=>{
+        //         resolve('ojbk');
+        //     },100)
+        // })); 
+        // let p2 = Promise.resolve('errwuhu')
+        // let p3 = Promise.resolve(new Promise((resolve,reject)=>{
+        //     resolve('ok')
+        // }))
+        // // let res = Promise.all([p1,p2,p3]);
+        // let res = Promise.race([p1,p2,p3]);
+        // let res = p.then((value) => {
+        //     console.log(value);
+        //     return 123;
+        //     //   throw 'Fail';
+        // }, (reason) => {
+        //     return new Promise((resolve, reject) => {
+        //         reject("err");
+        //     })
+        //     // return 'false'
+        //     // throw 123
+        // });
+
+        //  p.then((value)=>{
+        //      alert(value)
+        //  })
+        //.catch(reason=>{
+        //     console.log(222);
+        // }).then(value=>{
+        //     console.log(value);
+        // })
+
+        // let res = p.then();
+            console.log(333);
+        // console.log(res);
+        // console.log(p3);
+        // console.log(res);
+    </script>
+</body>
+
+</html>

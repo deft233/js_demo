@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var t1 = document.getElementById('t1');
+            var t2 = document.getElementById('t2');
+            t1.onclick = function(){
+                alert(1);
+
+            }
+            t2.onclick = function(){
+                alert(2);
+                
+            }
+            t1.setCapture();
+        }
+    </script>
+</head>
+<body>
+    <button id="t1">1</button>
+    <button id="t2">2</button>
+</body>
+</html>

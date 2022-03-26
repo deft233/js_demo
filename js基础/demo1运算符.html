@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script >
+        /*
+        算数运算符 运算时将类型转换成Number类型再进行计算
+        任何值与NaN运算都是NaN
+        加号 优先级最高为字符串型 有字符串运算时将其余类型转换字符串型
+        减号 优先级最高为数字类型 数字运算时将其余类型转换为数字
+        */
+        /*
+        任何值和NaN相比都是false
+        字符串相比 比较Unicode编码 一个一个比
+        */
+        /*
+        ==相等运算符 会进行类型转换 一般转换成Number型再比较 null 和 0 相比返回false 没有转换成number
+        undefined和null使用==运算会返回true
+        */
+        // var res = true > false;
+        // console.log(res)
+        /*
+            条件运算符 三元运算符 判断语句？执行语句1：执行语句2 并返回执行结果
+            判断语句会自动转换成布尔型
+        */
+        var a = 10, b = 20, c = 30, max = 0 ;
+        max = a > b? alert('a') : alert('b');
+        max = max > c? alert('?') : alert('c'); 
+        // 'true'?alert('a'):alert('b');
+        console.log(max)
+        // console.log(null == "0")
+
+    </script>
+</body>
+</html>

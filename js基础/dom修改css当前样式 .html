@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            var btn1 = document.getElementById('btn1');
+            var box1 = document.getElementById('box1');
+            btn1.onclick = function(){
+                //修改css当前样式  dom.style.样式名 = 样式值;
+                //通过getComputedStyle(参数1，参数2) 可以获得当前的样式值 参数1是要获取样式值的对象 参数二为伪元素 通常传null 会返回一个对象 这个对象有参数1的所有样式 只读 不能修改
+                var obj = getComputedStyle(box1,null);
+                console.log( box1)
+            }
+            function getStyle(obj,str){
+                console.log(getComputedStyle(obj,null)[str]);
+            }
+            getStyle(box1,'width');
+        }
+    </script>
+    <style>
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+    </style>
+</head>
+<body>
+    <button id="btn1">点我</button>
+    <div id="box1">
+    </div>
+</body>
+</html>

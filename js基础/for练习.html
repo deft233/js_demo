@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 打印7的倍数的个数和总和 1-100 -->
+    <!-- <script>
+        var count = 0 ,sum = 0;
+        for(i = 1 ; i<=100 ;i++)
+        {
+            if(i%7 == 0)
+            {
+                count++;
+                sum = sum+i;
+            }
+        } 
+        console.log('个数：'+count+"总和:"+sum);
+    </script> -->
+    <!-- 水仙花数 1个三位数 它的个位十位百位的立方和等于它本身 -->
+
+    <script>
+        for(i = 100 ;i<1000;i++)
+        {
+            // 百位获取
+            var bai = parseInt(i/100);
+            // console.log(bai)
+            // 十位获取
+            var shi = parseInt((i-bai*100) /10);
+            // console.log(shi)
+            // 个位获取
+            var ge = i % 10;
+            if(bai*bai*bai+shi*shi*shi+ge*ge*ge == i)
+            {
+                console.log(i);
+            }
+        }
+    </script>
+</body>
+</html>

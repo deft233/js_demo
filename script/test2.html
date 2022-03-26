@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var runner = new Function();
+        runner.prototype.speed = 0;
+        var runner1 = new runner();
+        // runner1.speed = 80;
+        console.log(runner1.speed);
+        var runner2 = new runner();
+        runner2.speed = 120;
+        console.log(runner2);
+        function getSpeed(obj) { console.log(obj.speed); }
+        getSpeed(runner2);// 80 getSpeed(runner2);// 120
+
+
+    </script>
+</body>
+
+</html>

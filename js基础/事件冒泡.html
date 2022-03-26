@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #son{
+            width: 70px;
+            height: 20px;
+            background-color: #fff;
+        }
+        #father{
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+        
+    </style>
+    <script>
+        window.onload = function(){
+            var son = document.getElementById('son');
+            var father = document.getElementById('father');
+            son.onclick = function(e){
+                e.cancelBubble = true;//用于取消穿透
+                alert('我是儿子');
+            }
+            father.onclick = function(e){
+                alert('我是你爹');
+                
+            }
+            document.body.onclick = function(e){
+                alert('我是你爷爷');
+            }
+            /*
+            事件冒泡 指的是 事件会从下往上穿透 触发子元素事件 会触发其祖先元素事件
+            可以用事件对象.cancelBubble= true 取消事件穿透
+            */
+        }
+    </script>
+</head>
+<body>
+    <div id="father">
+        <div id="son">我是儿子</div>
+    </div>
+</body>
+</html>

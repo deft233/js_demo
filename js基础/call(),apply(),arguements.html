@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        关于call()和apply()都是函数的方法 作用是改变this的指向 传入的对象是this指向的对象
+        区别是 call()传入对象后可以传递实参 apply也可以传递实参 但要通过数组封装
+        this指向
+        1.函数直接调用 永远都是window
+        2.对象的方法调用 this指向调用这个方法的对象
+        3.构造函数创建出来的对象 this指向这个对象
+        4.apply(obj),call(obj) this指向传入的这个obj
+        */
+        function fun1(a,b) {
+            console.log(this);
+        }
+        obj1 = {};
+        fun1.call(obj1,1,2)
+        fun1.apply(obj1,[1,2]);
+        //
+        /*
+        arguements 当函数在浏览器中执行时 会传入2个隐含的参数
+        1.传入上下文对象this
+        2.传入封装好的实参 arguments 这是一个类数组对象 不是数组 能使用索引
+        */
+       var obj2 = {name:'xiao'};
+        function fun2(){
+            console.log(arguments);
+        }
+         fun2(obj2);
+        // console.log(fun2);
+        //callee 是封装好的实参传入的函数
+    </script>
+</body>
+</html>

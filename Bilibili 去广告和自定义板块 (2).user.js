@@ -89,7 +89,9 @@
                 const newBlocks = document.getElementsByClassName('bili-layout');
                 //去除推广区
                 document.getElementsByClassName('bili-grid')[2].style.display = 'none';
-                //监听懒加载
+                //去除赛事栏
+               // console.log(document.getElementsByClassName('no-margin'))
+                //监听
                 newBlocks[0].addEventListener('DOMNodeInserted', function (e) {
                     //去广告
                     if (e.target.className === 'eva-banner') { e.target.style.display = 'none' }
@@ -98,10 +100,14 @@
                         if (bZhanBlockDIYNew.length === 26) {
                             yourBlocks.forEach(item => {
                                 bZhanBlockDIYNew[item].style.display = 'none';
-                                //console.log(bZhanBlockDIYNew);
+                                console.log(bZhanBlockDIYNew,e.target.className);
                             })
-                        }
-
+                        }    
+                    }
+                    //晚上的比赛板块
+                    else if(e.target.className === 'battle-area'){
+                        e.target.style.display = 'none';
+                            console.log(e.target);
                     }
                 })
             } else //'banner-card' 旧版

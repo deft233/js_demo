@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            width: 500px;
+            margin: 0px auto;
+            padding: 10px;
+            background-color: #bfa;
+            text-align: center;
+        }
+        img {
+            width: 100%;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var btn1 = document.getElementById('pre');
+            var btn2 = document.getElementById('next');
+            var imgArr = ["./img/肖工0.png","./img/明日香.png"];
+            var text = document.getElementById('text');
+            
+            var index = 0;
+            text.innerHTML = "一共有"+imgArr.length+"张图片，当前是"+(index+1)+"张";
+            btn1.onclick = function(){
+                
+                index--;
+                if(index < 0 ){
+                    index = imgArr.length-1;
+                }
+                console.log(index)
+                var obj1 = document.getElementsByTagName('img')[0];
+                obj1.src = imgArr[index];
+                text.innerHTML = "一共有"+imgArr.length+"张图片，当前是"+(index+1)+"张";
+            }
+            btn2.onclick = function(){
+               
+                index++;
+                if(index > imgArr.length-1 ){
+                    index = 0;
+                }
+                
+                var obj1 = document.getElementsByTagName('img')[0];
+                obj1.src = imgArr[index];
+                text.innerHTML = "一共有"+imgArr.length+"张图片，当前是"+(index+1)+"张";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <p id="text"></p>
+        <img src="./img/肖工0.png" alt="xiao">
+        <button id="pre">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+</body>
+</html>

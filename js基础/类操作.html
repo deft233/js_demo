@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .b1{
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+        }
+        .b2{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        .b2013{
+            /* width: 200px; */
+            height: 200px;
+            background-color: #bfa;
+        }
+    </style>
+    <script src="./js/tools.js"></script>
+    <script>
+        window.onload = function(){
+            var box1 = document.getElementById('box1');
+            var btn1 = document.getElementById('btn1');
+            btn1.onclick = function(){
+                /*
+                由于直接通过style改变样式 每次改变都会重新渲染一次页面 并不合适 而且显得与css高度耦合
+                所以可以采用通过class的方式 直接修改整个样式
+                但直接更换整个样式又显得太过生硬且不太灵活 所以可以使用加上某个样式的class
+                提取成函数
+                */
+                // box1.style.width = '200px';
+                // box1.style.height = '200px';
+                // addClass(box1,'b2');
+                tougouClass(box1,'b2');
+            }
+           
+        }
+    </script>
+</head>
+<body>
+    <div id="box1" class="b1 b2013"></div>
+    <button id="btn1">点我改变样式</button>
+</body>
+</html>

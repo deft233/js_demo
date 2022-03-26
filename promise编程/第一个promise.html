@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #btn1{
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btn1">抽卡</button>
+    <script>
+        /*
+        获取一个1-100的数字
+        */
+        function random1(){
+            return Math.ceil(Math.random() * 100)
+        }
+        var btn1 = document.getElementById('btn1');
+        // btn1.onclick = function(){
+        //     if(random1()<=30){
+        //         alert('恭喜中奖');
+        //     }else{
+        //         alert('再接再厉');
+        //     }
+        // }
+        /*
+        使用promise改写
+        */
+        // btn1.onclick = function(){
+        //     if(random1()<=30){
+        //         alert('恭喜中奖');
+        //     }else{
+        //         alert('再接再厉');
+        //     }
+        // }
+       btn1.onclick = function(){
+        var p = new Promise(function(relove,reject){
+            console.log(1);
+            var num = random1();
+            if(num<=30){
+                relove();
+                // alert(num)
+            }else{
+                reject();
+        }
+        })
+        console.log(p);
+        p.then(function(value){
+           alert('恭喜中奖'+value)
+        },function(reason){
+            alert('再接再厉'+reason);
+        })
+       }
+       /*
+       Promise的实例对象有两个属性
+       1个是状态属性 state 1个是结果值 result
+       state 有三个 panding resolved rejected
+       执行resolve() 会将状态panding转变为resolved reject()同理 每次new一次实例只能转换一次不可逆 并将结果值传入
+              */
+              
+
+
+
+
+    </script>
+</body>
+</html>

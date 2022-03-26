@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        关于this的指向问题
+        1.调用this的是函数时 this指向window对象
+        2.调用this的是对象的方法时 this 指向调用它的对象 this不是向外边找全局对象
+        3.调用this 的是构造函数时 this 指向新创建出来的类的对象
+        */
+        var name = '山泥若';
+        function fun1(){
+            console.log('这个是'+this.name);
+        }
+        var obj = {
+            name:'序号龙',
+            sayName:fun1
+        }
+        fun1();
+        console.log(obj.prototype)
+        obj.sayName();
+        /* 
+        使用工厂方法创建对象
+        */
+        //  function createP(name,age,gender) {
+            
+        //     var obj = new Object();
+        //         obj.name = name;
+        //         obj.age = age;
+        //         obj.gender = gender;
+        //         return obj;
+        //  }
+        // var obj2 =  createP('电棍',18,'男');
+        // var obj3 = createP('啥泥若',20,'nan')
+        // console.log(obj2)
+        // console.log(obj3)
+        /*
+        使用构造函数创建对象
+        构造函数和普通函数的区别是构造函数是new关键字调用
+        构造函数的执行过程
+        1.创建一个新对象 在堆内存开辟空间
+        2.this指向这个新对象
+        3.执行其他语句
+        4.返回这个对象
+        */
+        function Person(name,age,gender){
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+            this.sayName = function(){
+                console.log('名称'+this.name)
+            } 
+        }
+        var obj4 = new Person('许皓龙',3,'公');
+        console.log(obj4)
+        obj4.sayName();
+        console.log(obj4.prototype);
+        /*
+        instanceof判断对象是否为这个类（构造函数)的实例
+        */
+    //    console.log(obj4 instanceof Person)
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        div {
+            box-sizing: border-box;
+        }
+        #outer {
+            width: 480px;
+            height: 240px;
+            margin: 50px auto;
+            padding: 10px 0px;
+            background-color: #bfa;
+            position: relative;
+            overflow: hidden;
+        }
+        #outer li img {
+            width: 460px;
+            height: 220px;
+        }
+        #testPic {
+            list-style: none;
+            position: absolute;
+            /* left: -400px; */
+            /* width: 4000px; */
+        }
+        #testPic li {
+            float: left;
+            margin: 0 10px;
+        }
+        #nav{
+            position: absolute;
+            bottom: 0px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        #nav a {
+            width: 15px;
+            height: 15px;
+            float: left;
+            margin: 5px;
+            background-color: red;
+            opacity: 0.5;
+        }
+        #nav a:hover{
+            background-color: black;
+        }
+    </style>
+    <script src="../js/tools.js"></script>
+    <script>
+        window.onload = function(){
+            var img = document.getElementsByTagName('img');
+            var testPic = document.getElementById('testPic');
+            testPic.style.width = 480 * img.length +'px';
+            var allA = document.getElementsByTagName('a');
+            var index = 0; //当前所在图片的索引
+            // allA[index].num = index;
+            
+            allA[0].style.backgroundColor = 'black'
+            for(var i = 0 ;i < allA.length ; i++){
+                /*
+                点击超链接 跳转图片
+                */
+                allA[i].num = i;
+                // console.log(allA[i].num)
+                allA[i].onclick = function(){
+                    clearInterval(timer)
+                    console.log(this);
+                    index = this.num;
+                    // testPic.style.left = -450 * index + 'px';
+                    move(testPic,100,-480*index,'left',function(){autoMove()})
+                    setA();
+                }
+            }
+            function setA(){
+                if(index > allA.length-1){
+                        testPic.style.left = 0;
+                        index = 0;
+                    }
+                    // 排他原则 改变轮播图小点的样式 使活动的小点带特殊样式 
+                for(var i = 0 ; i< allA.length ; i++){
+                    allA[i].style.backgroundColor = ''
+                }
+                allA[index].style.backgroundColor = 'black';
+            }
+            /*
+            自动轮播图函数
+            */
+           var timer
+           function autoMove(){
+                timer = setInterval(()=>{
+                    //index自增
+                    index++;
+                    
+                    index %= img.length;
+                    
+                    move(testPic,100,-480*index,'left',function(){setA();})
+                    
+                    
+                },1500)
+           }
+           autoMove();
+        }
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <ul id="testPic">
+            <li><img src="../img/肖工0.png" alt="xiao"></li>
+            <li><img src="../img/明日香.png" alt="xiao"></li>
+            <li><img src="../img/肖工0.png" alt="xiao"></li>
+            <li><img src="../img/明日香.png" alt="xiao"></li>
+            <li><img src="../img/123.jpg" alt="xiao"></li>
+            <li><img src="../img/肖工0.png" alt="xiao"></li>
+        </ul>
+        <div id="nav">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>   
+</body>
+</html>

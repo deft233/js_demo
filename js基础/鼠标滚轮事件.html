@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test1 {
+            width: 200px;
+            height: 200px;
+            background-color: #bfa;
+        }
+    </style>
+    <script>
+        /*
+        鼠标滚轮事件 使得div变长变短
+        */
+        window.onload = function(){
+            var test1 = document.getElementById('test1');
+            function getEvent(obj,callstr,callback){
+                if(obj.addEventListener){
+                    obj.addEventListener(callstr,callback,false)
+                }else
+               {obj.attachEvent('on'+callstr,function(){callback.call(obj)});}
+           }
+           test1.onwheel = function(event){
+               event = event || window.event;
+               if(event.wheelDelta > 0){
+                    test1.style.height = test1.clientHeight + 10 +'px' ;
+               }else
+               {
+                    test1.style.height = test1.clientHeight - 10 +'px';
+               }
+               if(event.preventDefault){
+            event.preventDefault();
+        }else {
+            event.returnValue=false;
+        }
+
+           }
+           getEvent(test1,'mousewheel',test1.onwheel
+           )
+
+        }
+    </script>
+</head>
+<body>
+    <div id="father" style="height: 2000px;">
+        <div id="test1"></div>
+    </div>
+</body>
+</html>

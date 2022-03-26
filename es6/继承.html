@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //es5的方法
+        // function People(name,age){
+        //     this.name = name ;
+        //     this.age = age;
+        // }
+        // People.prototype.say = function(){
+        //     console.log('cnm');
+        // }
+        // function Student(name,age,gender,price){
+        //     People.call(this,name,age);
+        //     this.gender = gender;
+        //     this.price = price;
+        // }
+        
+        // Student.prototype = new People;
+        // Student.prototype.constructor = Student;
+        // Student.prototype.learn = function(){
+        //     console.log('我要学习');
+        // }
+        // let s1 = new Student('猪头',18,'男',2000)
+        // console.log(s1.learn);
+        //es6的class super 可以调用父类的构造函数和方法
+        class People{
+            constructor(name,age){
+                this.name = name ;
+                this.age = age;
+            }
+            say(){
+                console.log('cnm');
+            }
+        }
+        class Student extends People{
+            constructor(name,age,gender,price){
+            super(name,age);
+                // People.call(this,name,age);
+            this.gender = gender;
+            this.price = price;
+            }
+            // Super.call();
+            learn(){
+                console.log('我在学习');
+            }
+            say(){
+                super.say();
+            }
+            
+        }
+        let s1 = new Student('晓轩',44,'nan',4444);
+        console.log(s1);
+    </script>
+</body>
+</html>

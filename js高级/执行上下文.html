@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        执行上下文 全局执行上下文 window 预处理后再开始执行全局代码
+        函数执行上下文
+        arguments 伪数组 函数中用来保存形参的
+        调用函数前，创建函数上下文对象 栈空间 封闭空间 虚拟的
+        对局部数据预处理
+        把局部数据作为函数上下文对象的属性
+        函数执行
+        局部数据销毁
+        */
+        function a() {
+            
+        }
+        var a = 1;
+        console.log(typeof a)
+        /*
+        函数提升先于变量提升 且不能被变量提升覆盖 但会被变量赋值覆盖
+        */
+       var c = 1;
+       function c(){
+           console.log(123);
+       }
+    //    c();
+       /*
+       作用域链与执行上下文
+       静态 代码创建就存在作用域 动态 代码执行才有执行上下文
+       */
+      function fun(n,o){
+          console.log(o);
+          return {
+              fun:function(m){
+                  return fun(m,n);
+              }
+          }
+      }
+      var a = fun(0);
+      console.log(a.fun(1));
+      a.fun(2);
+      a.fun(3);
+      
+    </script>
+</body>
+</html>

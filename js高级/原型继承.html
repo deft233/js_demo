@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Supper(){
+            this.supN = 'my Supper';
+            Supper.prototype.getSup = function(){
+                console.log('getSup');
+            }
+        }
+        function Sub(){
+            this.subN = 'my Sub';
+            Sub.prototype.getSub = function(){
+                console.log('getSub');
+            }
+        }
+        // console.log(Sub.prototype);
+        Sub.prototype = new Supper();
+        Sub.prototype.constructor = Sub;
+        // var sup = new Supper();
+        // var sub = new Sub();
+        
+        console.log(Sub.prototype);
+        /*
+        此时sub 想使用getSup 就要使用原型继承
+        */
+    </script>
+</body>
+</html>

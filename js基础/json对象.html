@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        json有两种
+        json的本质是字符串
+        1.json对象 '{}' 
+        2.json数组 '[]'
+        json的值有限制
+        1.string
+        2.number
+        3.Boolean
+        4.null
+        5.对象
+        6。数组
+        json对象的属性名一定一定一定要加""引起来
+        JSON类
+        两个方法
+        JSON.parse(json)将json字符串解析成js对象
+        JSON.stringify(js)将js对象解析成json字符串
+        */
+        var json = '{"name":"狗","age":18}';
+        var js = JSON.parse(json);
+        var json0 = JSON.stringify(js);
+        console.log(json0);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

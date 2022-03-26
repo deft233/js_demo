@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        span {
+            display: inline-block;
+            width:150px;
+            height:100px;
+        }
+    </style> -->
+</head>
+<body>
+    <!-- 打印99乘法表 -->
+    <script>
+        // for(i = 1 ; i<10 ;i++){
+        //     for(j=1 ; j<i+1 ;j++)
+        //     {
+        //         document.write('<span>'+j+'*'+i+'='+j*i+'</span>');
+        //     }
+        //     document.write('<br >');
+        // }
+
+        //打印1-100以内的质数
+        console.time('test');
+        for(i = 2; i<=100000 ;i++)
+        {
+            var flag = true ;
+            for( j = 2 ; j < Math.sqrt(i) ; j++)
+            {
+                if( i % j == 0){
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag == true)
+            {
+                document.write(i+'<br>');              
+            }
+            
+        }
+        console.timeEnd('test');
+    </script>
+    
+</body>
+
+</html>

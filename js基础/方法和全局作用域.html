@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            对象的函数称为方法 方法和函数除了名称没有任何区别
+            我们直接声明函数 这个函数相当于window的方法
+            全局作用域 我们声明的变量 函数 都是在window对象中
+        */
+    //    function fun1(){
+    //        alert('你好');
+
+    //    }
+    //   console.log( window.fun1)
+      /*
+      变量提升 我们声明的变量会先执行声明 但不会赋值  要用var 关键字
+      */
+    //  var a = 123;
+    //    console.log('a的值:'+a);
+
+       /*
+       函数声明会也会提升 最先执行函数的声明 但函数表达式不会声明提前
+       */
+
+    //    console.log(fun1);
+    //    fun2();
+    //    var fun1 = function(){
+    //        alert('123');
+    //    }
+    //    function fun2(){
+    //        alert('456');
+    //    }
+        /*
+        局部作用域 也存在声明提前和变量提升
+        */
+    //    在局部作用域中不加var 就相当于给全局作用域的变量赋值 window.变量
+       var a = 123;
+       function fun1(){
+            b = 456;
+       }
+       fun1();
+       console.log(a);
+
+    </script>
+</body>
+</html>

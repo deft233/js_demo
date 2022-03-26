@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        键盘按下事件 一般来说只能绑定在能够聚焦的元素 div这样的不起作用
+        */
+       window.onload = function(){
+           /*
+           onkeydown 键盘被按下 根据设计 按下第一次与第二次会有一段时间的间隔 防止误触
+           onkeyup 键盘按下后弹起
+           使 键盘无法输入数字
+           */
+          var input = document.getElementsByTagName('input')[0];
+            document.onkeydown = function(e){
+               if(e.ctrlKey && e.key === 'a'){
+                   alert(1);//CTRL+a一起按下时的事件
+               }
+            }
+
+
+           input.onkeydown = function(e)
+           {
+               if(e.key >= 0 || e.key <=9)
+               {
+                   return false;//取消默认行为
+               }
+           }
+       }
+    </script>
+</head>
+<body>
+    <input type="text" />
+</body>
+</html>

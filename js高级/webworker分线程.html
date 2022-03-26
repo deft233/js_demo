@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="" id="number" placeholder="数字">
+    <button id="test1">计算</button>
+    <script>
+        function fun1(number){
+            return number<=2?1:fun1(number-1)+fun1(number-2);
+        }
+        var test1 = document.getElementById('test1');
+        var number = document.getElementById('number');
+        test1.onclick = function(){
+            var worker = new Worker('worker.js');
+            worker.onmessage = function(event){
+               console.log(event.data);
+            }
+            var data = number.value;
+            // var res = fun1(data);
+            worker.postMessage(data);
+            // console.log(res)
+        }
+    </script>
+</body>
+</html>

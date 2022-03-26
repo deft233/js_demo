@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 对象类型
+        // new 后面的函数 叫做构造函数 对象赋值 1. obj.对象属性 = 对象属性值 2 .obj["属性名"] = 属性值; 第二种可以传变量 更加灵活 开发常用
+        // 判断对象是否有这个属性 "属性名" in 对象 返回值是个布尔值 这个判断无法穿透 无法判断是自己的属性还是祖先的属性
+        // 删除对象的属性 delete 对象.属性名
+        // 对象字面量 不需要使用new 构造函数 直接赋值 对象= {}
+        var obj = new Object();
+        obj.name = '山泥若';
+        obj.age = 30;
+        obj.money = 10000;
+        obj['罪行'] = '赌博';
+        obj2 = { 
+            name:'小炫',
+            age:18
+        }
+        console.log(obj.age);
+        console.log(obj['罪行']);
+        console.log('罪行' in obj);
+        // delete obj['罪行'];
+        console.log(obj2);
+    </script>
+</body>
+</html>

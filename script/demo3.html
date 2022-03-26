@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //  var a = []//打印undefine 变量声明了未赋值
+        // console.log(a[0]);//栈空间中找不到该变量 报错 跟a.b报undefined一样 找到a对象 在a对象中找不到b undefined 找到数组 在数组中找不到变量 
+        
+        // var f1 = 666;
+        // function f1(){
+        //     return 10086;
+        // }
+        // console.log(f1());
+        // 函数提升优先级高于变量提升 但同名变量赋值会覆盖函数
+    //    let x = 0 ;
+    //   async function f1(){
+    //        x = (await 2) +x
+    //        console.log(x);
+    //    }
+       
+    //    f1();
+    //    console.log('hi');
+    //    x=1;
+    const delAll=[];
+    const cartList = [{isChecked:1,name:'0'},{isChecked:1,name:'123'},{isChecked:0,name:'1'}]
+    cartList.forEach(async item=>{
+        if(item.isChecked==1){
+            let delItem =await p1()//如果是异步 返回的是还没有确定状态的promise
+            delAll.push(delItem);
+        }
+    })
+    console.log(delAll);
+    Promise.all(delAll).then(value=>{
+        console.log(value);
+    });
+    function p1(){
+      return new Promise((resolve,reject)=>{
+          setTimeout(()=>{
+            resolve('ok')
+          },10)
+        })
+    }
+    </script>
+</body>
+</html>

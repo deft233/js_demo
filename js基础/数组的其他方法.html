@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        sort()使用ASCII值排序 排字符串 排数字可能会出现问题 比如 25>100
+        */
+        //concat()连接两个数组 也可以直接传值  并返回一个新的数组 不改变原数组 
+        var arr1 = ['炫','棍'];
+        var arr2 = ['若'];
+        var res = arr1.concat(arr2);
+        console.log(res);
+        //join() 把数组转换成字符串 数组元素之间默认用,分隔 可以在()中指定分隔符 返回这个字符串 不改变原数组
+        var newRes = res.join('~');
+        console.log(newRes);
+        //reverse() 反转数组 改变原数组
+        arr1.reverse();
+        console.log(arr1);
+        //sort()数组排序 改变原数组 按照ASCII排序 一般没啥用 需要我们传入一个自建函数
+        var arr3 = [1,2,3,6,5,2,11];
+        
+        console.log(arr3.sort(function(a,b){
+            if(a<b){
+                return 1 ;
+            }else if (a>b) {
+                return -1;
+            }else 
+                return 0;
+        }));
+        //返回1 调换 返回0和-1 不调换 
+        console.log(arr3.sort(function(a,b){return a-b;}));
+    </script>
+</body>
+</html>

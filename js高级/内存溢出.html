@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var obj = {};
+        // var arr = new Array(10000);
+        // for(i = 0;i<10000000;i++){
+        //     obj[i] = new Array(10000)
+        //     console.log(arr[i]);
+        // }
+/*
+内存泄漏
+1.多余的全局变量
+2.用完没释放的定时器
+3.未释放的闭包
+日积月累会导致可用内存不断减少
+
+内存溢出
+代码运行所要求的内存大于当前剩余内存 运行代码时会报错
+*/
+var name = 'the window'
+var obj = {
+    name:'myobj',
+    getName:()=>{
+        return ()=>{
+            return this.name;
+        }
+    }
+}
+console.log(obj.getName()());
+var  x = 10;
+ 
+function foo() {
+  console.log(x);
+}
+ 
+function bar() {
+  var x = 20;
+  foo(); // 10, 而不是 20!
+}
+
+bar();
+    </script>
+</body>
+</html>

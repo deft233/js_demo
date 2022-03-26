@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        正则表达式中 关于去除.要使用\. 转义字符
+        \s 空格
+        \S 除了空格
+        \b 单词边界
+        \B 除了边界
+        \d 去除数字
+        \D 除了数字
+        \w 下划线数字字母 [A-z0-9_]
+        \W 除了
+        */
+        var reg = /\./;
+        var str = '1';
+        var res = reg.test(str);
+        console.log(res)
+        //去除前后空格 /\s*/
+        str = '                sad1    156      ';
+        reg = /\s*/;
+        res = str.replace(/^\s*|\s*$/g,'');
+        console.log(res);
+        /*邮箱的正则
+        156240591@163qq.com
+        /\w+ @ [A-z0-9]{2,5} \. com
+        
+        */
+        str = "156dsadasd240591@163.com";
+        reg = /^\w+@[A-z0-9]{2,5}\.com$/;
+        res = reg.test(str);
+        console.log(res)
+    </script>
+</body>
+</html>

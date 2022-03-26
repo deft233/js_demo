@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #test1 {
+            width: 100px;
+            height: 100px;
+            background-color: #bfa;
+            position: absolute;
+        }
+        #test2 {
+            width: 100px;
+            height: 100px;
+            top: 200px;
+            left: 200px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        /*
+        鼠标拖拽事件
+        1.鼠标按下 onmousedown
+        2.鼠标拖动 onmousemove
+        3.鼠标松开 onmouseup
+        */
+       window.onload = function(){
+        var test1 = document.getElementById('test1');
+        var test2 = document.getElementById('test2');
+           function drag(obj){
+           obj.onmousedown = function(e){
+               e = event || window.event;
+               obj.setCapture && obj.setCapture();
+                var x = e.offsetX;//获取元素离它上一级定位元素的偏移量
+                var y = e.offsetY;
+                document.onmousemove = function(e){
+                    
+                    obj.style.top = e.clientY-y +'px';
+                    
+                    obj.style.left = e.clientX-x +'px';
+                }
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                    obj.releaseCapture && obj.releaseCapture();
+                }
+                return false; //取消默认事件
+           }
+           }
+           drag(test1);
+           drag(test2);
+       }
+    </script>
+</head>
+<body>
+    <p>123456</p>
+    <div id="test1"></div>
+    <div id="test2"></div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+
+        window.onload = function(){
+            function myclick(id,fun){
+            var btn = document.getElementById(id);
+            btn.onclick = fun;
+            }
+            var btn0 = document.getElementById("btn0");
+            btn0.onclick = function(){
+              var obj0 =  document.getElementById("bj");
+              console.log(obj0.innerHTML)
+            }
+            // var btn1 = document.getElementById("btn1");
+            // btn1.onclick = function(){
+            //   var obj1 =  document.getElementsByTagName('li');
+            //   for(var i = 0 ; i<obj1.length;i++)
+            //   {
+            //     console.log(obj1[i].className)
+            //   }
+            // }
+            myclick('btn1',function(){
+              var obj1 =  document.getElementsByTagName('li');
+              for(var i = 0 ; i<obj1.length;i++)
+              {
+                console.log(obj1[i].className);
+              }
+            }
+            );
+            var btn2 = document.getElementById('btn2');
+            btn2.onclick = function(){
+                var city = document.getElementById('city');
+                //获取元素节点的子节点 childNodes firstChild lastChild
+                //#city下的所有li标签元素
+                // var nodes = city.getElementsByTagName('li');
+                // for( var i = 0 ;i<nodes.length;i++){
+                //     console.log(nodes[i].innerHTML)
+                // }
+                //#city下的所有子节点
+                // var nodes = city.firstChild;
+                // console.log(nodes.innerHTML)
+                // for( var i = 0 ;i<nodes.length;i++){
+                //     console.log(nodes[i].innerHTML)
+                // }
+                // //#city下的所有子元素
+                // var nodes = city.children;
+                // for( var i = 0 ;i<nodes.length;i++){
+                //     console.log(nodes[i].innerHTML)
+                // }
+            }
+            myclick('btn3',function(){
+                //返回bj的父节点;
+                var bj = document.getElementById('bj');
+                var fath = bj.parentNode;
+                console.log(fath);
+            })
+            myclick('btn4',function(){
+                //返回gz的前一个兄弟节点
+                var gz = document.getElementById('gz');
+               var bro = gz.previousSibling;
+               console.log(bro);
+            })
+            myclick('btn5',function(){
+                //获取文本值
+                var username = document.getElementById('username');
+                
+                console.log(username.value)
+            })
+            myclick('btn7',function(){
+                //返回bj的文本值
+                var bj = document.getElementById('bj');
+                var child = bj.firstChild;
+                console.log(typeof child)
+            })
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p>你喜欢什么城市</p>
+        <ul id="city">
+            <li id="bj">北京</li>
+            <li class="芜湖">上海</li><li id="gz">广州</li>
+            <li>东京</li>
+            <li>首尔</li>
+        </ul>
+        <input type="text" name="" id="username" value="许昊龙">
+    </div>
+    <div>
+        <button id="btn0">id为bj</button>
+        <button id="btn1">所有li</button>
+        <button id="btn2">city下的所有子节点</button>
+        <button id="btn3">返回bj的父节点</button>
+        <button id="btn4">返回gz的前一个兄弟节点</button>
+        <button id="btn5">读取usernamed的value值</button>
+        <button id="btn6">设置username</button>
+        <button id="btn7">返回bj的文本值</button>
+    </div>
+</body>
+</html>

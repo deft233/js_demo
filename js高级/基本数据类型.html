@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        /*
+        基本数据类型（值类型）
+        1.string
+        2.number
+        3.boolean
+        4.undefined
+        5.null
+        对象类型（引用类型
+        1.object
+        两种比较特殊的类型
+        function 可执行
+        array 有序
+        判断类型的方法
+        1.typeof 不能判断null与object array与object的区别 返回值是'string'字符串类型
+        2.instanceof 用于判断具体的对象类型 返回值是boolean A是B的实例对象 A instanceof B
+        3.===
+        */
+        var b1 = {
+            b2:function(){
+                console.log('===');
+                return function(){
+                    return 'wuhu';
+                }
+            }
+        }
+        var b3 = [1,2,3]
+        console.log(b1.b2()());
+        console.log(typeof b1.b2);
+        /*
+        undefined和null的区别
+        undefined是定义了未赋值 null是赋值为null 空对象指针
+        什么时候用null
+        开始时
+        var a = null 表明a是一个对象类型 
+        结束时 a = null 让垃圾回收站回收对象
+
+        */
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

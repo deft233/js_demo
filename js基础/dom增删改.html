@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onclick = function(){
+            function myClick(btn,fun){
+                var btn = document.getElementById(btn);
+                btn.onclick = fun;
+            }
+            myClick('btn0',function(){
+                var city = document.getElementById('city');
+                var sz = document.createElement('li');
+                var sztext = document.createTextNode('深圳');
+                sz.appendChild(sztext);
+                city.appendChild(sz);
+                // console.log(typeof sz);
+            })
+
+            myClick('btn1',function(){
+                var city = document.getElementById('city');
+                var sz = document.createElement('li');
+                var sztext = document.createTextNode('深圳');
+                var bj = document.getElementById('bj');
+                sz.appendChild(sztext);
+                city.insertBefore(sz,bj);
+                // console.log(typeof sz);
+            })
+            myClick('btn2',function(){
+                var city = document.getElementById('city');
+                var sz = document.createElement('li');
+                var sztext = document.createTextNode('深圳');
+                var bj = document.getElementById('bj');
+                sz.appendChild(sztext);
+                city.replaceChild(sz,bj);
+                // console.log(typeof sz);
+            })
+            myClick('btn3',function(){
+              
+                var bj = document.getElementById('bj');
+                bj.parentNode.removeChild(bj);
+                // console.log(typeof sz);
+            })
+            myClick('btn4',function(){
+                var city = document.getElementById('city');
+                var sz = document.createElement('li');
+                sz.innerHTML = '深圳';
+                city.appendChild(sz);
+              // console.log(typeof sz);
+          })
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p>你喜欢什么城市</p>
+        <ul id="city">
+            <li id="bj">北京</li>
+            <li class="芜湖">上海</li><li id="gz">广州</li>
+            <li>东京</li>
+            <li>首尔</li>
+        </ul>
+        <input type="text" name="" id="username" value="许昊龙">
+    </div>
+    <div>
+        <button id="btn0">在首尔后插入深圳</button>
+        <button id="btn1">在北京前插入深圳</button>
+        <button id="btn2">北京替换深圳</button>
+        <button id="btn3">删除北京</button>
+        <button id="btn4">插入深圳 新方法</button>
+        <button id="btn5">读取usernamed的value值</button>
+        <button id="btn6">设置username</button>
+        <button id="btn7">返回bj的文本值</button>
+    </div>
+</body>
+</html>

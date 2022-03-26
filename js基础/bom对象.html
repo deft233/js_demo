@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload=function(){
+            /*
+            关于bom对象 浏览器对象模型
+            window 
+            navigator 航海家 通常只用userAgent
+            history 查看历史记录 但由于隐私 只能查看当前访问的前面页面和后面页面 与 浏览器前进后退按钮功能类似
+            location 地址栏 
+            */
+            var name = navigator.userAgent;
+            
+            // if(/firefox/i.test(name)){
+            //     alert('我是火狐')
+            // }else if(/edg/i.test(name)){
+            //     alert('我是edg')
+            // }else if (/chrome/i.test(name)){
+            //     alert('我是chrome')
+            // }else if(/msie/i.test(name)){
+            //     alert('我是ie')
+            // }else if ("ActiveXObject" in window){
+            //     alert('我是ie11')
+            // }
+        //    var fir = document.getElementById('fir');
+        //    fir.onclick = function(){
+        //     location = 'https://www.bilibili.com';
+        //    }
+        /*
+        定时器
+        定时调用 延时调用 区别是一个持续调用 一个只调用一次
+        */
+        var fir = document.getElementById('fir');
+        var p = document.getElementsByTagName('p')[0];
+        var i = 1;
+        // for(let i = 0; i<10;i++)
+        // {
+        //     let abc = setTimeout(function(){
+        //         fir.innerHTML=i;
+        //         if(i == 5){
+        //             console.log(i);
+        //              clearTimeout(abc);
+        //         }
+        //     },i*1000);
+            
+        // }
+        var abc = setInterval(() => {
+            p.innerHTML=i++;
+            if(i == 5)
+            {
+                clearInterval(1);
+            }
+        }, 1000);
+        }
+    </script>
+</head>
+<body>
+    <button id="fir"></button>
+    <p></p>
+</body>
+</html>

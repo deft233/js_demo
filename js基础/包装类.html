@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        Number() String() Boolean()
+        都会把基本数据类型临时转换成对象 才能使用对象的属性和方法 
+        */
+       var num = new Number(3);
+       var num0 = 3;
+       num0 = num0.toString();//这里基本数据类型num0本不应该能使用对象才能使用的属性和方法 所以 这里临时把基本数据类型转换成了对象类型 调用完毕后销毁对象
+       console.log(typeof num0);
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        闭包:一个嵌套函数 内部函数调用外部函数的变量 就产生了闭包
+        两种理解
+        1.这个内部函数是闭包
+        2.内部函数里的closure对象是闭包
+        */
+        function fn1(){
+            var a = 1;
+            function fn2(){
+                // console.log(a);
+                return a;
+            }
+           return fn2();
+        }
+        var a = fn1();
+        console.log(a);
+        /*
+        闭包的作用
+        1.让局部变量的生命周期延长
+        2.让外部函数可操作内部函数的变量
+        */
+       function fun3() {
+           var a = 1;
+           function fun4() {
+               a++;
+               console.log(a);
+           }
+           return fun4;
+       }
+    //    var f1 = fun3(); //闭包产生 fun4的指向被赋值给了f1 fun4这个变量被销毁了 但其指向的内容还没被销毁 里面的变量有a
+    //    f1();
+    //    f1();
+    //    f1 = null ;//闭包生命周期结束
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        关于数组 array 使用array.length可以设置或者返回数组的长度
+        */
+        //使用构造函数的方式创建数组
+        // var arr = new Array();
+        // arr[0] = 10;
+        // arr.length = 10;
+        // arr[arr.length] = 11;
+        // console.log(arr[arr.length-1])
+        //一般我们使用数组字面量的形式创建数组
+        // var arr1 = [0,1,2,3,4];
+        // console.log(arr1)
+        //数组也可以放其他类型的变量 数组 函数 对象
+        // arr2 = [[123,456,789],[987,654,321]];
+        // arr3 = [function(){
+        //     alert('1');
+        // },function(){}]
+        // console.log(arr3[0]())
+        // var arr = new Array(10);//创建一个长度为10的数组
+        // arr2 = [10] //创建一个只有一个元素为10的数组
+        //array常用插入元素的四个方法 pop() push() unshift() shift()
+        var arr = [0];
+        
+         arr.push('123');//尾插入一个新元素 并返回新数组的长度
+         //pop尾删掉一个元素 并返回删掉的元素
+            //unshift()前插入一个新元素 并返回新数组的长度
+            //shift()前删掉一个新元素 并返回被删掉的元素
+        // console.log(arr.pop('123')+','+arr);
+        console.log(arr.shift());
+        console.log(arr.shift());
+    </script>
+</body>
+</html>

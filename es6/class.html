@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        es5中 是以构造函数的形式
+        es6中 引入class 用来替代构造函数 使语言的面向对象的特点更加明显
+        */
+        class People{
+           constructor(name,age){
+               this.name = name;
+               this.age = age;
+           }
+           saiHi(){
+               console.log('HI');
+           }
+           static dead(){
+               console.log('我死了');
+           }
+       }
+       function Student(name,age){
+        this.name = name;
+        this.age = age;
+        Student.learn = function(){
+            console.log('我在学习');
+        }
+
+       }
+       Student.prototype.saiHi = function(){
+           console.log('hi');
+       }
+       let s0 = new Student('昊龙',20);
+       let s1 = new People("电棍",22)
+       console.log(s0,s1);
+       People.dead();
+       
+    </script>
+</body>
+</html>

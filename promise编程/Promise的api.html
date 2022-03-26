@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let p = new Promise((resolve,reject)=>{
+        //     reject(321);
+        // })
+        // p.catch((reason)=>{
+        //     console.log(reason);
+        // })
+        // let p1 = Promise.resolve(new Promise((resolve,reject)=>{
+        //     reject(321);
+        // }));/*
+        // 快速返回一个成功的promise对象 但传入参数是失败的promise对象 返回的结果为失败的promise对象
+        // */
+        // p1.catch(reason=>{
+        //     console.log(reason);
+        // })
+        // let p2 = Promise.reject(123)
+        // console.log(p2);
+        // p2.catch(reason=>{
+        //     console.log(reason);
+        // })
+        /*
+        Promise.all和Promise.race方法
+        */
+    //    接收一个promise对象数组 返回一个promise对象 状态全部成功为成功 有一个失败就为失败 状态成功的结果值为这个数组状态失败的结果值为这个失败的对象的值
+            let  p = new Promise((resolve,reject)=>{
+                setTimeout(()=>{resolve('ok');},500)
+            })
+            let  p1 = new Promise((resolve,reject)=>{
+                setTimeout(()=>{resolve('nice');},1000)
+            })
+            // let  p2 = new Promise((resolve,reject)=>{
+            //     reject('error');
+            // })
+    //   let resP = Promise.all([p,p1,p2]);
+    //   console.log(resP);
+console.log(p);
+    //   let resP = Promise.race([p,p1,p2]);
+    //   console.log(resP); //race()方法 接收一个promise对象数组 返回一个promise对象 状态由第一个完成的promise的结果状态 以及它的结果值
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 输入一个数 判断是否是质数 -->
+    <script>
+        var num  = prompt('输入一个大于1的数');
+        var flag = true ; 
+        if(num<1) {
+            alert('这个数字不合法');
+        }else {
+            for(i = 2 ; i<parseInt(num/2) ; i++){
+                if( num % i == 0)
+                {
+                    flag = false;
+                }
+            }
+            if(flag){
+                alert('这个数是质数');
+            }
+            else{
+                alert('这个数b是质数');
+            }
+        }
+    </script>
+</body>
+</html>

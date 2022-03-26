@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outer {
+            width: 500px;
+            margin: 0px auto;
+            padding: 10px;
+            background-color: #bfa;
+            text-align: center;
+        }
+        img {
+            width: 100%;
+        }
+    </style>
+    <script>
+        window.onload =function(){
+           var imgArr = ["./img/肖工0.png","./img/明日香.png"];
+           var imgIndex = 0;
+           var img = document.getElementsByTagName('img')[0];
+           var stp = document.getElementById('stp');
+           var beg = document.getElementById('beg');
+           var timer 
+           beg.onclick = function(){
+            clearInterval(timer);
+           timer =  setInterval(function(){
+                imgIndex++;
+                imgIndex = imgIndex % imgArr.length;
+               img.src = imgArr[imgIndex];
+               console.log(imgIndex);
+           },1000)
+           }
+           stp.onclick = function(){
+               clearInterval(timer);
+           }
+           
+
+        }
+    </script>
+</head>
+<body>
+    <img src="./img/肖工0.png" alt="xiao" id="outer">
+    <br>
+    <button id="beg">开始</button>
+    <button id="stp">停止</button>
+</body>
+</html>
