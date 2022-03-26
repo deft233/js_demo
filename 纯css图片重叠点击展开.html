@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        ul li {
+            /* li是动态的 由input撑开 */
+            max-width: 700px;
+            height: 500px;
+            float: left;
+            list-style: none;
+        }
+        input {
+            opacity: 0;
+            width: 50px;
+            height: 500px;
+            float: left;
+            transition: .5s
+        }
+        input:checked {
+            width: 700px;
+        }
+        ul  :nth-child(1),
+        ul :nth-child(1) .bg {
+            background: url(https://img.3dmgame.com/uploads/images/news/20210303/1614759734_294058.jpg) center/cover;
+        }
+        ul  :nth-child(2),
+        ul :nth-child(2) .bg {
+            background: url(https://img.3dmgame.com/uploads/images/news/20210104/1609723761_857339.jpg) center/cover;
+        }
+        ul :nth-child(3),
+        ul :nth-child(3) .bg{
+            background: url(https://img.3dmgame.com/uploads/images/news/20210104/1609723194_467574.jpg) center/cover;
+        }
+        ul {
+            width: 1000px;
+            height: 500px;
+            margin: 100px auto;
+        }
+        .bg {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            filter: blur(5px);
+        }
+        /* 被选中的input的同级的div设置透明度 */
+        input:checked~ .bg {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<!--     
+    流程
+    1.得明白结构是由什么组成的 既然是图片层叠展开 那就是ul>li的形式 然后又有个毛边模糊过的全屏图片 就需要给两个地方设置背景图片
+    2.然后这两个地方又需要同步改变 结构就不能分家 既然是给li盒子添加背景 就要给li里的一个盒子也添加背景 保证其能同步改变 接下来就是如何控制点击展开了 
+    我们需要给li加上一个input/radio 用于控制点击展开 结构选型就完毕了 ul>li>input+div 
+    接下来盘逻辑 如何点击层叠展开 + 背景变化
+     层叠展开 意味着我们的盒子是从小变大 且带有浮动 width 50  700 选中的变大
+     点击展开 我们是通过input框点击 确定checked的 既然如此 我们的input框就要覆盖整个图片 保证点图片有效
+    li由input撑开 input脱标 设置大小 
+    背景图片(div) 设置 占满全屏 优先级没有li高 且随checked切换
+    背景变化 选中的div（bg）设置显示
+-->
+    <ul>
+        <!-- 图片在li和div(bg)里面 li中的input框只是为了控制点击展开的 -->
+        <li>
+            <input type="radio" name="switch" checked>
+            <div class="bg"></div>
+        </li>
+        <li>
+            <input type="radio" name="switch" >
+            <div class="bg"></div>
+        </li>
+        <li>
+            <input type="radio" name="switch" >
+            <div class="bg"></div>
+        </li>
+    </ul>
+    <script>
+        let imgArr =document.getElementsByName('switch')
+        console.log(imgArr);
+        let index = 1;//应该被选中的下标 因为第一张是默认选中 所以从第二张开始设置
+        setInterval(()=>{
+            if(index>imgArr.length-1){
+                index = 0;
+            }
+            for (let index = 0; index < imgArr.length; index++) {
+                imgArr[index].checked = false       
+            }
+            imgArr[index].checked = true
+            index++;
+        },1000)
+    </script>
+</body>
+</html>
