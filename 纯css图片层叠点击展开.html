@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 图片源 https://www.3dmgame.com/games/yuanshen/qrwtj_535 -->
+    <style>
+        ul :nth-child(1),
+        ul :nth-child(1) .bg{
+            background: url(https://img.3dmgame.com/uploads/images/news/20210623/1624436625_681555.jpg) center/cover;
+            /* center/cover 背景图片居中并显示全图 */
+        }
+        
+        ul :nth-child(2),
+        ul :nth-child(2) .bg{
+            background: url(https://img.3dmgame.com/uploads/images/news/20210623/1624435604_140694.jpg) center/cover;
+        }
+        ul :nth-child(3),
+        ul :nth-child(3) .bg{
+            background: url(https://img.3dmgame.com/uploads/images/news/20210104/1609723194_467574.jpg) center/cover;
+        }
+        ul :nth-child(4),
+        ul :nth-child(4) .bg{
+            background: url(https://img.3dmgame.com/uploads/images/news/20210104/1609723761_857339.jpg) center/cover;
+        }
+        ul :nth-child(5),
+        ul :nth-child(5) .bg{
+            background: url(https://img.3dmgame.com/uploads/images/news/20210303/1614759734_294058.jpg) center/cover;
+        }
+        ul {
+            width: 1000px;
+            height: 500px;
+            margin: 100px auto;
+        }
+        li {
+            float: left;
+            height: 500px;
+            max-width: 710px;
+            list-style: none;
+        }
+        input {
+            opacity: 0;
+            width: 50px;
+            height: 500px;
+            float: left;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+        .bg{
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            filter: blur(5px);
+            /* 优先级降低+背景模糊 */
+        }
+        input:checked {
+            width: 700px;
+        }
+        input:checked ~ .bg {
+             opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <input type="radio" name="switch" checked>
+            <div class="bg"></div>
+        </li>
+        <li>
+            <input type="radio" name="switch" >
+            <div class="bg"></div>
+        </li>
+        <li>
+            <input type="radio" name="switch" >
+            <div class="bg"></div>
+        </li>
+        <li>
+            <input type="radio" name="switch" >
+            <div class="bg"></div>
+        </li>
+        <li>
+            <input type="radio" name="switch" >
+            <div class="bg"></div>
+        </li>
+        
+    </ul>
+</body>
+</html>
